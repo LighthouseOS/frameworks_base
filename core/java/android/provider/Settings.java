@@ -5264,6 +5264,16 @@ public final class Settings {
         public static final String NAVIGATION_BAR_MODE_OVERLAY = "navigation_bar_mode_overlay";
 
         /**
+         * Volume keys control cursor in text fields (default is 0)
+         * 0 - Disabled
+         * 1 - Volume up/down moves cursor left/right
+         * 2 - Volume up/down moves cursor right/left
+         * @hide
+         */
+        @Readable
+        public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5398,7 +5408,6 @@ public final class Settings {
 
         /**
          * These entries are considered common between the personal and the managed profile,
-         * since the managed profile doesn't get to change them.
          */
         @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
         private static final Set<String> CLONE_TO_MANAGED_PROFILE = new ArraySet<>();

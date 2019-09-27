@@ -10250,13 +10250,18 @@ public final class Settings {
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
         /**
+         * Control whether the process CPU info meter should be shown.
+         * @hide
+         */
+        public static final String SHOW_CPU_OVERLAY = "show_cpu_overlay";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
          * All settings in {@link LEGACY_RESTORE_SETTINGS} array *must* have a non-null validator,
          * otherwise they won't be restored.
          *
-         * @hide
          */
         @Readable
         public static final String[] LEGACY_RESTORE_SETTINGS = {

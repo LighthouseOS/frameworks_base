@@ -39,6 +39,7 @@ import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.CPUInfoTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
@@ -109,6 +110,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
     private final Provider<FPSInfoTile> mFPSInfoTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -152,7 +154,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SyncTile> syncTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
-            Provider<FPSInfoTile> fpsInfoTileProvider) {
+            Provider<FPSInfoTile> fpsInfoTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -192,6 +195,7 @@ public class QSFactoryImpl implements QSFactory {
         mUsbTetherTileProvider = usbTetherTileProvider;
         mCPUInfoTileProvider = cpuInfoTileProvider;
         mFPSInfoTileProvider = fpsInfoTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -276,6 +280,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mCPUInfoTileProvider.get();
             case "fpsinfo":
                 return mFPSInfoTileProvider.get();
+            case "dataswitch":
+                return mDataSwitchTileProvider.get();
         }
         // Custom tiles
         if (tileSpec.startsWith(CustomTile.PREFIX)) {

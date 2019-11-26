@@ -299,6 +299,9 @@
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
 
+    <!-- DataSwitch tile -->
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
@@ -309,7 +312,6 @@
         android:label="@string/app_label"
         android:icon="@drawable/icon"
         android:process="com.android.systemui"
-        android:supportsRtl="true"
         android:theme="@style/Theme.SystemUI"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true"
